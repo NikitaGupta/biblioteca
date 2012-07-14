@@ -2,19 +2,28 @@ import java.util.ArrayList;
 
 public class TestConsole implements IConsole {
 
-    private ArrayList<String> console = new ArrayList<String>();
+    private ArrayList<String> consoleOutput = new ArrayList<String>();
+    private String consoleInput;
+
 
     @Override
     public void println(String s) {
-        console.add(s);
+        consoleOutput.add(s);
     }
 
     public String readConsole() {
         StringBuilder consoleData = new StringBuilder();
-        for (String line : console) {
+        for (String line : consoleOutput) {
             consoleData.append(line);
         }
         return consoleData.toString();
     }
 
+    public void writeInput(Object input) {
+        consoleInput = (String)input;
+    }
+
+    public String getInput() {
+        return consoleInput;
+    }
 }

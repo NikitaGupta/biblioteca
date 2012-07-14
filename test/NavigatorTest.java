@@ -6,6 +6,21 @@ public class NavigatorTest {
     public void shouldBeAbleToDisplayWelcomeMessage(){
         TestConsole testConsole = new TestConsole();
         (new Navigator()).welcomeCustomer(testConsole);
-        Assert.assertTrue(testConsole.readConsole().equals("Welcome to Biblioteca"));
+        Assert.assertEquals(testConsole.readConsole(), ("Welcome to Biblioteca"));
+    }
+    
+    @Test
+    public void shouldBeAbleToAcceptUserInput(){
+        TestConsole testConsole = new TestConsole();
+        testConsole.writeInput("Hello");
+        Assert.assertNotNull(testConsole.getInput());
+    }
+    
+    @Test
+    public void shouldTestIfConsoleReturnsTheInputEnteredByTheUser() {
+        TestConsole testConsole = new TestConsole();
+        testConsole.writeInput("Hello");
+        
+        Assert.assertEquals("Hello",testConsole.getInput());
     }
 }
