@@ -23,7 +23,7 @@ public class TestConsole implements IConsole {
         consoleInput = (String)input;
     }
 
-    public String getInput() {
+    public String readInput() {
         return consoleInput;
     }
 }

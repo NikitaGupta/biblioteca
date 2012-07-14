@@ -13,7 +13,7 @@ public class NavigatorTest {
     public void shouldBeAbleToAcceptUserInput(){
         TestConsole testConsole = new TestConsole();
         testConsole.writeInput("Hello");
-        Assert.assertNotNull(testConsole.getInput());
+        Assert.assertNotNull(testConsole.readInput());
     }
     
     @Test
@@ -21,6 +21,6 @@ public class NavigatorTest {
         TestConsole testConsole = new TestConsole();
         testConsole.writeInput("Hello");
         
-        Assert.assertEquals("Hello",testConsole.getInput());
+        Assert.assertEquals("Hello",testConsole.readInput());
     }
 }
