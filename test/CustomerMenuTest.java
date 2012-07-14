@@ -4,38 +4,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerMenuTest {
-    static ArrayList<String> menu = new ArrayList<String>();
 
-    @BeforeClass
-    public static  void initializeMenu() {
-        menu.add("View all books");
-        menu.add("Reserve a book");
-
+    @Test
+    public void shouldBeAbleToReturnMenuAsAString() {
+        String menu = "0. View all books \n1. Reserve a book \n";
+        Assert.assertEquals(menu, new CustomerMenu().getMenu());
     }
 
     @Test
-    public void shouldBeAbleToDisplayMenu() {
-        StringBuffer expectedMenu = new StringBuffer("MENU \n");
-
-        for (int index = 0; index < menu.size(); index++) {
-            expectedMenu.append(index).append(". ").append(menu.get(index)).append("\n");
-        }
-
-        TestConsole testConsole = new TestConsole();
-        (new CustomerMenu()).displayMenu(testConsole);
-
-        Assert.assertEquals(expectedMenu.toString(), testConsole.readConsole());
-    }
-    
-    @Test
-    public void shouldBeAbleToValidateTheOptionSelected(){
+    public void shouldBeAbleToValidateTheOptionSelected() {
         Assert.assertTrue((new CustomerMenu()).isValidOption(1));
     }
-    
-    @Test (expected = IllegalArgumentException.class)
-    public void shouldBeAbleToInvalidateAnOption(){
+
+    @Test(expected = RuntimeException.class)
+    public void shouldBeAbleToInvalidateAnOption() {
         new CustomerMenu().isValidOption(5);
     }
 

@@ -9,15 +9,17 @@ public class CustomerMenu {
         menu.add("Reserve a book");
     }
 
-    public void displayMenu(IConsole console) {
-        console.println("MENU \n");
-        for (int index = 0; index < menu.size(); index++) {
-            console.println(index + ". " + menu.get(index) + "\n");
-        }
-    }
 
     public boolean isValidOption(int selectedOption) {
-        if (selectedOption < 0 || selectedOption > menu.size()) throw new IllegalArgumentException("Select a valid Option!");
+        if (selectedOption < 0 || selectedOption > menu.size()) throw new RuntimeException("Select a valid Option!");
         return true;
+    }
+
+    public String getMenu() {
+        StringBuilder menuList = new StringBuilder();
+        for (int index = 0; index < menu.size(); index++) {
+            menuList.append(index).append(". ").append(menu.get(index)).append(" \n");
+        }
+        return menuList.toString();
     }
 }

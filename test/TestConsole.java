@@ -7,7 +7,7 @@ public class TestConsole implements IConsole {
 
 
     @Override
-    public void println(String s) {
+    public void print(String s) {
         consoleOutput.add(s);
     }
 

@@ -1,5 +1,5 @@
 public interface IConsole {
-    void println(String s);
+    void print(String s);
     String readInput();
 
 }

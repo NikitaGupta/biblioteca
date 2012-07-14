@@ -2,6 +2,22 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class NavigatorTest {
+    
+    @Test
+    public void shouldBeAbleToWriteToConsole(){
+        TestConsole testConsole = new TestConsole();        
+        new Navigator().writeToConsole(testConsole,"Hello");
+        Assert.assertEquals("Hello",testConsole.readConsole());
+    }
+    
+    @Test
+    public void shouldBeAbleToReadFromConsole(){
+        TestConsole testConsole = new TestConsole();
+        testConsole.writeInput("1");
+        
+        Assert.assertEquals(1,Integer.parseInt(new Navigator().readFromConsole(testConsole)));
+    }
+
     @Test
     public void shouldBeAbleToDisplayWelcomeMessage(){
         TestConsole testConsole = new TestConsole();
@@ -20,7 +36,7 @@ public class NavigatorTest {
     public void shouldTestIfConsoleReturnsTheInputEnteredByTheUser() {
         TestConsole testConsole = new TestConsole();
         testConsole.writeInput("Hello");
-        
         Assert.assertEquals("Hello",testConsole.readInput());
     }
+
 }
