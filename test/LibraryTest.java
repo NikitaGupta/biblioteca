@@ -7,7 +7,6 @@ public class LibraryTest {
     Book book2 = new Book(2, "Harry Potter", "J.K.Rowling", false);
     Book book3 = new Book(3, "Angels and Demons", "Dan Brown", true);
 
-
     @Test
     public void shouldBeAbleToViewAllBooks() {
         Library library = new Library(book1,book2);
@@ -19,7 +18,7 @@ public class LibraryTest {
     
     @Test
     public void shouldBeAbleToReturnBookWithAGivenName(){
-        Assert.assertEquals(book1,new Library().getBook("Kite Runner"));
+        Assert.assertEquals(book1,new Library(book1,book2).getBook("Kite Runner"));
     }
         
     @Test

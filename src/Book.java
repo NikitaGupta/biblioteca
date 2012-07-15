@@ -35,8 +35,7 @@ public class Book {
     }
 
     public boolean isReserved() {
-        if (reserved) return true;
-        return false;
+        return reserved;
     }
 
     public String getName() {

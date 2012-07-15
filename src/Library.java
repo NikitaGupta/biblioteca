@@ -1,32 +1,20 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Library {
     private static List<Book> bookList = new ArrayList<Book>();
 
     Library(Book...books){
-        for (Book book : books) {
-            bookList.add(book);
-        }
-    }
-
-    public void displayBookList(IConsole console) {
-        for (Book book : bookList) {
-            console.print(book.toString() + "\n");
-        }
+        Collections.addAll(bookList, books);
     }
 
     public String getAllBooks() {
-        StringBuffer list = new StringBuffer();
+        StringBuilder list = new StringBuilder();
         for (Book book : bookList) {
             list.append(book.toString()).append(" \n");    
         }
         return list.toString();
-    }
-
-    public boolean isAvailableForIssue(int bookID) {
-        if ( bookList.get(bookID).isReserved()) return false;
-        return true;
     }
 
     public Book getBook(String name) {
