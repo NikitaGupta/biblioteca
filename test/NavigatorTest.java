@@ -3,13 +3,7 @@ import org.junit.Test;
 
 public class NavigatorTest {
     
-    @Test
-    public void shouldBeAbleToWriteToConsole(){
-        TestConsole testConsole = new TestConsole();        
-        new Navigator().writeToConsole(testConsole,"Hello");
-        Assert.assertEquals("Hello",testConsole.readConsole());
-    }
-    
+
     @Test
     public void shouldBeAbleToReadFromConsole(){
         TestConsole testConsole = new TestConsole();

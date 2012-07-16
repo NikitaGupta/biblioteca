@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CustomerMenu {
-    private static ArrayList<String> menu;
+    private ArrayList<String> menu;
 
     CustomerMenu() {
         menu = new ArrayList<String>();
@@ -11,7 +11,7 @@ public class CustomerMenu {
 
 
     public boolean isValidOption(int selectedOption) {
-        if (selectedOption < 0 || selectedOption > menu.size()) throw new RuntimeException("Select a valid Option!");
+        if (selectedOption < 0 || selectedOption > menu.size()) return false;
         return true;
     }
 

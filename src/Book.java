@@ -4,7 +4,7 @@ public class Book {
     private String author;
     private boolean reserved;
 
-    public Book(int ID, String name, String author,boolean reserved) {
+    public Book(int ID, String name, String author, boolean reserved) {
         this.ID = ID;
         this.name = name;
         this.author = author;
@@ -14,10 +14,10 @@ public class Book {
     @Override
     public String toString() {
         StringBuilder book = new StringBuilder();
-        book.append(ID).append(" , ").append(name).append(" , ").append( author).append(" , ");
-        if(reserved)
+        book.append(ID).append(" , ").append(name).append(" , ").append(author).append(" , ");
+        if (reserved)
             book.append("Issued");
-        else 
+        else
             book.append("Available");
         return book.toString();
     }
@@ -26,23 +26,19 @@ public class Book {
     public boolean equals(Object object) {
         if (object instanceof Book) {
             Book book = (Book) object;
-
             if (ID != book.ID) return false;
-            if (!author.equals(book.author)) return false;
-            if (!name.equals(book.name)) return false;
         }
         return true;
-    }
-
-    public boolean isReserved() {
-        return reserved;
     }
 
     public String getName() {
         return name;
     }
 
-    public void reserve() {
+    public boolean reserve() {
+        if (reserved)
+            return false;
         reserved = true;
+        return true;
     }
 }

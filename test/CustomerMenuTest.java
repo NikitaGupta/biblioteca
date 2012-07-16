@@ -1,10 +1,5 @@
 import junit.framework.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CustomerMenuTest {
 
@@ -19,9 +14,9 @@ public class CustomerMenuTest {
         Assert.assertTrue((new CustomerMenu()).isValidOption(1));
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void shouldBeAbleToInvalidateAnOption() {
-        new CustomerMenu().isValidOption(5);
+        Assert.assertFalse(new CustomerMenu().isValidOption(5));
     }
 
 }
