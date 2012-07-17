@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Navigator {
     Library library;
     
@@ -40,6 +38,12 @@ public class Navigator {
                     console.print("Thank You! Enjoy the book.");
                 else 
                     console.print("Sorry we don't have that book yet.");
+                break;
+            
+            case 2:
+                console.print("The list of movies is as follows : \n\n");
+                writeToConsole(console, new MovieCollection().getAllMovies());
+                break;
         }
     }
 }

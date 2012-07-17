@@ -7,6 +7,7 @@ public class CustomerMenu {
         menu = new ArrayList<String>();
         menu.add("View all books");
         menu.add("Reserve a book");
+        menu.add("View all movies");
     }
 
 

@@ -5,7 +5,7 @@ public class CustomerMenuTest {
 
     @Test
     public void shouldBeAbleToReturnMenuAsAString() {
-        String menu = "0. View all books \n1. Reserve a book \n";
+        String menu = "0. View all books \n1. Reserve a book \n2. View all movies \n";
         Assert.assertEquals(menu, new CustomerMenu().getMenu());
     }
 
