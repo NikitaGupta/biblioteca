@@ -25,4 +25,27 @@ public class LibraryTest {
         Assert.assertFalse(library.reserveBook("Angels and Demons"));
     }
 
+    @Test
+    public void shouldBeAbleToReturnTrueOnLogIn(){
+        Library library = new Library();
+        TestConsole console = new TestConsole();
+        console.writeInput("111-1114 pwd3");
+        Assert.assertTrue(library.confirmLogin(console));
+    }
+    
+    @Test
+    public void shouldBeAbleToHandleNotExistingUser(){
+        Library library = new Library();
+        TestConsole console = new TestConsole();
+        console.writeInput("111-1154 pwd3");
+        Assert.assertFalse(library.confirmLogin(console));
+    }
+    
+    @Test
+    public void shouldBeAbleToReturnTrueIfUserIsAlreadyLoggedIn(){
+        Library library = new Library();
+        TestConsole console = new TestConsole();
+        console.writeInput("111-1113 pwd2");
+        Assert.assertTrue(library.confirmLogin(console));
+    }
 }

@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         SystemConsole console = new SystemConsole();
         Navigator navigator = new Navigator();
-        int choice = 0;
+        int choice;
 
         navigator.welcomeCustomer(console);
 
